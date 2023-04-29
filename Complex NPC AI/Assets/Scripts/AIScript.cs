@@ -265,7 +265,6 @@ public class AIScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("destination is found " + stands[chosenStand].name);
                 FindQueue(stands[chosenStand], chosenStand);
             }
         }
@@ -302,10 +301,10 @@ public class AIScript : MonoBehaviour
                 bool willSit = false;
                 for (int i = 0; i < tables.Count; i++)
                 {
-                    if (tables[i].GetComponent<BeverageSource>().beverageType == currentBeverage &&
-                        !tables[i].GetComponent<BeverageSource>().full && !isBeveraging)
+                    if (tables[i].GetComponent<TableScript>().beverageType == currentBeverage &&
+                        !tables[i].GetComponent<TableScript>().full && !isBeveraging)
                     {
-                        GameObject[] tableChairs = new GameObject[tables[i].GetComponent<BeverageSource>().capacity];
+                        GameObject[] tableChairs = new GameObject[tables[i].GetComponent<TableScript>().capacity];
 
                         Vector3 crowdMidPoint = Vector3.zero;
                         List<GameObject> occupiedList = new List<GameObject>();
@@ -314,29 +313,29 @@ public class AIScript : MonoBehaviour
                         Vector3 tempSum = Vector3.zero;
                         int totalPreferences = 0;
 
-                        for (int x = 0; x < tables[i].GetComponent<BeverageSource>().capacity; x++)
+                        for (int x = 0; x < tables[i].GetComponent<TableScript>().capacity; x++)
                         {
-                            if (tables[i].GetComponent<BeverageSource>().chairs[x].GetComponent<PlacementScript>().occupied)
+                            if (tables[i].GetComponent<TableScript>().chairs[x].GetComponent<PlacementScript>().occupied)
                             {
-                                tempSum += tables[i].GetComponent<BeverageSource>().chairs[x].transform.localPosition; 
+                                tempSum += tables[i].GetComponent<TableScript>().chairs[x].transform.localPosition; 
 
-                                if (tables[i].GetComponent<BeverageSource>().chairs[x].GetComponent<PlacementScript>().currentNPC.GetComponent<AIScript>().gender == genderPreference)
+                                if (tables[i].GetComponent<TableScript>().chairs[x].GetComponent<PlacementScript>().currentNPC.GetComponent<AIScript>().gender == genderPreference)
                                 {
                                     totalPreferences++;
                                 }
 
-                                occupiedList.Add(tables[i].GetComponent<BeverageSource>().chairs[x]);
+                                occupiedList.Add(tables[i].GetComponent<TableScript>().chairs[x]);
                             }
                             else
                             {
-                                freeList.Add(tables[i].GetComponent<BeverageSource>().chairs[x]);
+                                freeList.Add(tables[i].GetComponent<TableScript>().chairs[x]);
                             }
                         }
 
                         crowdMidPoint = tempSum / occupiedList.Count;
                         float tempC = confidence + totalPreferences + drunkenness;
 
-                        if (tempC / 10 > (float)occupiedList.Count / tables[i].GetComponent<BeverageSource>().capacity)
+                        if (tempC / 10 > (float)occupiedList.Count / tables[i].GetComponent<TableScript>().capacity)
                         {
                             destinationFound = true;
                             chosenTableObject = tables[i];

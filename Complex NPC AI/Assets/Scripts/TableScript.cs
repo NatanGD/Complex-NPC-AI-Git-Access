@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeverageSource : MonoBehaviour
+public class TableScript : MonoBehaviour
 {
     public GameObject drinkPrefab;
     public GameObject foodPrefab;
