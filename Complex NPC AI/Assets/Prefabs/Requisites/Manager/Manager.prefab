@@ -82,10 +82,6 @@ MonoBehaviour:
   showDebugChart: 0
   npcPrefab: {fileID: 4945165422914278998, guid: 5cbdb982669c71a4fadef1d50cba910c,
     type: 3}
-  spawner: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  npcParent: {fileID: 0}
-  firstSpawn: 1
   spawnTimer: 0
   spawnFrequency: 3
-  maxAmount: 3
+  maxAmount: 10

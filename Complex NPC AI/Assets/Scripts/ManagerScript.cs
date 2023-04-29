@@ -17,7 +17,7 @@ public class ManagerScript : MonoBehaviour
 
     [Range(1, 10)] public float spawnTimer;
     [Range(2.5f, 10)] public float spawnFrequency;
-    [Range(1, 20)] public int maxAmount;
+    [Range(1, 40)] public int maxAmount;
 
     private float frequency = 0;
     private int npcCounter = 0;

@@ -68,6 +68,10 @@ public class TableScript : MonoBehaviour
         for (int i = 0; i < capacity; i++)
         {
             chairs.Add(Instantiate(chairPrefab));
+            GameObject front = new GameObject();
+            front.name = "Front"; 
+            front.transform.parent = chairs[i].transform;
+            front.transform.localPosition = new Vector3(0, 1, -1.5f); 
             chairs[i].AddComponent<PlacementScript>();
             chairs[i].AddComponent<TriggerScript>();
             chairs[i].transform.parent = transform.Find("Chairs");
