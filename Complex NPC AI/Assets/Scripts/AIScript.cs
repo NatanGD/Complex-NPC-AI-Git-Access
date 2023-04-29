@@ -13,7 +13,7 @@ public class AIScript : MonoBehaviour
     public Material selfSkin;
 
 
-    [Range(0, 5)] public float maxCollectionDuration;
+    [Range(0, 20)] public float maxCollectionDuration;
     [Range(0, 30)] public float maxActionDuration = 20;
     [Range(0, 30)] public float maxToiletDuration = 30;
     [Range(0.05f, 1)] public float rateOfConsumption = 0.5f;
