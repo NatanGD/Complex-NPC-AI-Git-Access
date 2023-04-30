@@ -87,7 +87,7 @@ public class AIScript : MonoBehaviour
             thirst = Random.Range(4, 7);
         }
 
-        urgency = Random.Range(1, 5);
+        urgency = Random.Range(4, 7);
         confidence = Random.Range(1, 10);
         drunkenness = 0;
         isBeveraging = false;
@@ -474,7 +474,7 @@ public class AIScript : MonoBehaviour
                 if (currentBeverage == Beverage.BeverageType.FOOD)
                 {
                     hunger -= rateOfConsumption;
-                    urgency += rateOfConsumption / 2;
+                    urgency += rateOfConsumption * 0.75;
                     if (hunger <= 0)
                     {
                         hunger = 0;
